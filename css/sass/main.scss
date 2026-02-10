@@ -1,0 +1,26 @@
+/* ========================================
+   MAIN SCSS FILE
+   Importa tutti i partial Sass
+   ======================================== */
+
+// 1. Importa variabili (devono essere per prime!)
+@import "variables";
+
+// 2. Importa mixins (utilizzati negli altri file)
+@import "mixins";
+
+// 3. Importa base styles
+@import "base";
+
+// 4. Importa componenti
+@import "header";
+@import "hero";
+@import "projects";
+@import "modal";
+@import "footer";
+
+// 5. Importa animazioni
+@import "animations";
+
+// 6. Importa responsive (per ultimo!)
+@import "responsive";

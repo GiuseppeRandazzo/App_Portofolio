@@ -1,0 +1,61 @@
+/* ========================================
+   RESPONSIVE DESIGN
+   Media queries per mobile e tablet
+   ======================================== */
+
+// Tablet
+@include tablet {
+  .hero-title {
+    font-size: $font-xl;
+  }
+
+  .hero-subtitle {
+    font-size: $font-base;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: $spacing-md;
+  }
+
+  .modal-content {
+    margin: $spacing-sm;
+    padding: $spacing-md;
+  }
+}
+
+// Mobile
+@include mobile {
+  .header {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-btn {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-xs;
+  }
+
+  .hero {
+    padding: $spacing-lg 0;
+  }
+
+  .hero-title {
+    font-size: $font-lg;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin: $spacing-xs;
+    padding: $spacing-sm;
+  }
+}

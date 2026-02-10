@@ -1,0 +1,168 @@
+/* ========================================
+   MIXINS SASS
+   Funzioni riutilizzabili per DRY code
+   ======================================== */
+
+// Mixin per centrare elementi con flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Mixin per flexbox con direzione personalizzata
+@mixin flex($direction: row, $align: stretch, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// Mixin per transizioni
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Mixin per ombre
+@mixin shadow($level: "light") {
+  @if $level == "light" {
+    box-shadow: $shadow-light;
+  } @else if $level == "medium" {
+    box-shadow: $shadow-medium;
+  } @else if $level == "heavy" {
+    box-shadow: $shadow-heavy;
+  }
+}
+
+// Mixin per border radius
+@mixin rounded($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+// Mixin per bottoni
+@mixin button-base {
+  padding: $spacing-xs $spacing-md;
+  border: none;
+  @include rounded;
+  cursor: pointer;
+  font-weight: $font-medium;
+  @include transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    @include shadow("medium");
+  }
+}
+
+// Mixin per bottone primario
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary-color;
+  color: $white;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Mixin per bottone outline
+@mixin button-outline {
+  @include button-base;
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+// Mixin per gradient background
+@mixin gradient-bg($color1, $color2, $angle: 135deg) {
+  background: linear-gradient($angle, $color1 0%, $color2 100%);
+}
+
+// Mixin per testo troncato (ellipsis)
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Mixin per testo multi-line truncate
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Mixin per aspect ratio (utile per immagini)
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(#{$height} / #{$width} * 100%);
+  }
+}
+
+// Mixin per nascondere scrollbar
+@mixin hide-scrollbar {
+  -ms-overflow-style: none; // IE e Edge
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+}
+
+// Mixin per responsive breakpoints
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: $breakpoint-wide) {
+    @content;
+  }
+}
+
+// Mixin per animazioni personalizzate
+@mixin animate($name, $duration: 0.5s, $timing: ease, $delay: 0s) {
+  animation: $name $duration $timing $delay;
+}
+
+// Mixin per posizionamento assoluto centrato
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin per overlay (sfondo scuro semi-trasparente)
+@mixin overlay($opacity: 0.7) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, $opacity);
+}

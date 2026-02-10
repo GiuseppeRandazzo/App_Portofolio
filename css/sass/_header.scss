@@ -1,0 +1,47 @@
+/* ========================================
+   HEADER E NAVIGAZIONE
+   ======================================== */
+
+.header {
+  background-color: $white;
+  @include shadow("light");
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  padding: $spacing-sm 0;
+
+  .container {
+    @include flex(row, center, space-between);
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+}
+
+.logo {
+  font-size: $font-lg;
+  color: $primary-color;
+  font-weight: $font-semibold;
+}
+
+// Navigazione
+.nav {
+  @include flex(row, center, flex-start);
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  @include button-outline;
+  padding: 0.6rem 1.2rem;
+  font-size: $font-sm;
+
+  &.active {
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}

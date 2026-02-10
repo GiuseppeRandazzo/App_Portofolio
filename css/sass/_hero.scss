@@ -1,0 +1,22 @@
+/* ========================================
+   SEZIONE HERO
+   ======================================== */
+
+.hero {
+  @include gradient-bg($primary-color, $secondary-color);
+  color: $white;
+  padding: $spacing-xxl 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: $font-xxl;
+  margin-bottom: $spacing-sm;
+  @include animate(fadeInDown, 0.8s);
+}
+
+.hero-subtitle {
+  font-size: $font-md;
+  opacity: 0.9;
+  @include animate(fadeInUp, 0.8s);
+}

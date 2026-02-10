@@ -1,0 +1,51 @@
+/* ========================================
+   BASE STYLES
+   Reset e stili di base
+   ======================================== */
+
+// Reset universale
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Stili body
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+// Container principale
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+// Stili link base
+a {
+  text-decoration: none;
+  color: inherit;
+  @include transition;
+}
+
+// Stili immagini
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Stili button base
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}

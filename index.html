@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio professionale - Voice Over, Copywriting, Web Development" />
+    <title>Il Mio Portfolio Professionale</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER CON NAVIGAZIONE -->
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Il Mio Portfolio</h1>
+        <nav class="nav">
+          <!-- Pulsanti per cambiare categoria -->
+          <button class="nav-btn active" data-category="all">Tutti</button>
+          <button class="nav-btn" data-category="voiceover">Voice Over</button>
+          <button class="nav-btn" data-category="copywriting">
+            Copywriting
+          </button>
+          <button class="nav-btn" data-category="webdev">
+            Web Development
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SEZIONE HERO (introduzione) -->
+    <section class="hero">
+      <div class="container">
+        <h2 class="hero-title">Benvenuto nel mio Portfolio</h2>
+        <p class="hero-subtitle">Esplora i miei progetti professionali</p>
+      </div>
+    </section>
+
+    <!-- GRIGLIA PROGETTI -->
+    <main class="main">
+      <div class="container">
+        <!-- Questo div verrà popolato dinamicamente con JavaScript -->
+        <div id="projects-grid" class="projects-grid">
+          <!-- I progetti verranno inseriti qui tramite JS -->
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL PER DETTAGLI PROGETTO -->
+    <!-- Questo modal si apre quando clicchi su un progetto -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <!-- Pulsante per chiudere il modal -->
+        <span class="close-btn">&times;</span>
+
+        <!-- Contenuto del modal (viene popolato dinamicamente) -->
+        <div id="modal-body" class="modal-body">
+          <!-- Il contenuto verrà inserito da JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Portfolio Professionale. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+
+    <!-- Link al file JavaScript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

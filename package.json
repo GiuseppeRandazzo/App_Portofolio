@@ -1,0 +1,21 @@
+{
+  "name": "app-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Web App con Sass",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass css/sass/main.scss css/style.css",
+    "sass:watch": "sass --watch css/sass/main.scss:css/style.css",
+    "sass:build": "sass css/sass/main.scss css/style.css --style=compressed"
+  },
+  "keywords": [
+    "portfolio",
+    "sass",
+    "web-app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}
