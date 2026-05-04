@@ -39,68 +39,6 @@ const projects = [
     audioFile: "assets/audio/corporate.mp3",
   },
 
-  // PROGETTI COPYWRITING
-  {
-    id: 4,
-    category: "copywriting",
-    categoryLabel: "Copywriting",
-    title: "Campagna Email Marketing - E-commerce Moda",
-    shortDescription: "Serie di 5 email per lancio collezione primavera",
-    fullDescription:
-      "Creazione di una sequenza email completa per il lancio della nuova collezione primavera/estate. Focus su storytelling emozionale e call-to-action persuasive.",
-    image: "assets/images/copywriting-1.jpg",
-    copyText: `
-        🌸 La Primavera Ti Aspetta - Scopri la Nuova Collezione 🌸
-        
-        Ciao [Nome],
-        
-        Il sole inizia a scaldarci, i fiori sbocciano... e il tuo guardaroba? 
-        È pronto per la primavera più bella di sempre?
-        
-        Abbiamo creato una collezione che parla di te: colori vivaci, tessuti leggeri e uno stile che non passa inosservato.
-        
-        ✨ Novità esclusive
-        🎁 Sconto 20% per i primi 3 giorni
-        📦 Spedizione gratuita per ordini sopra i 50€
-        
-        Non aspettare che l'estate arrivi. La moda è adesso.
-        
-        [SCOPRI LA COLLEZIONE]
-        
-        Con stile,
-        Il Team [Brand]
-        `,
-  },
-  {
-    id: 5,
-    category: "copywriting",
-    categoryLabel: "Copywriting",
-    title: "Landing Page - Corso Online di Fotografia",
-    shortDescription: "Copy persuasivo per pagina vendita corso digitale",
-    fullDescription:
-      "Testi completi per landing page ad alta conversione. Struttura basata su tecnica AIDA (Attenzione, Interesse, Desiderio, Azione) con testimonial e garanzie.",
-    image: "assets/images/copywriting-2.jpg",
-    copyText: `
-        Trasforma la Tua Passione in Professione
-        
-        Hai mai guardato le foto dei professionisti e pensato "Vorrei saper fare così"?
-        
-        Il problema non è la tua fotocamera. È la tecnica.
-        
-        In questo corso imparerai:
-        ✓ Composizione fotografica avanzata
-        ✓ Gestione della luce naturale e artificiale
-        ✓ Post-produzione professionale
-        ✓ Come trovare i tuoi primi clienti
-        
-        [Oltre 500 studenti hanno già trasformato il loro hobby in una carriera]
-        
-        Cosa aspetti? Il momento perfetto non esiste. Crealo.
-        
-        [INIZIA ORA - Garanzia 30 giorni soddisfatto o rimborsato]
-        `,
-  },
-
   // PROGETTI WEB DEVELOPMENT
   {
     id: 6,
@@ -154,6 +92,8 @@ const navButtons = document.querySelectorAll(".nav-btn");
 
 // Quando la pagina è caricata, esegui queste funzioni
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded, initializing projects...");
+  console.log("Projects array length:", projects.length);
   renderProjects(currentCategory); // Mostra tutti i progetti
   setupEventListeners(); // Attiva i listener per i click
 });
@@ -203,8 +143,14 @@ function createProjectCard(project) {
 
   // Riempie il div con l'HTML della card
   card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="project-image" 
-             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'400\' height=\'200\'/%3E%3Ctext fill=\'%23999\' x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'18\'%3EImmagine non disponibile%3C/text%3E%3C/svg%3E'">
+        <div class="image-container" style="position: relative; background: #eee; height: 180px; overflow: hidden;">
+          <img src="${project.image}" alt="${project.title}" class="project-image" 
+               style="width: 100%; height: 100%; object-fit: cover;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="image-placeholder" style="display: none; height: 100%; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: #666; font-style: italic;">
+              📸 Carica la preview in: <br> ${project.image}
+          </div>
+        </div>
         <div class="project-content">
             <span class="project-category">${project.categoryLabel}</span>
             <h3 class="project-title">${project.title}</h3>
@@ -236,17 +182,22 @@ function openModal(project) {
     case "voiceover":
       // Per voice over: mostra immagine + player audio
       modalContent += `
-                <img src="${project.image}" alt="${project.title}" class="modal-image"
-                     onerror="this.style.display='none'">
+                <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                  <img src="${project.image}" alt="${project.title}" class="modal-image"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica immagine: ${project.image}</p>
+                </div>
                 <div class="audio-player">
                     <h4>🎧 Ascolta l'audio:</h4>
-                    <audio controls>
-                        <source src="${project.audioFile}" type="audio/mpeg">
-                        Il tuo browser non supporta l'audio HTML5.
-                    </audio>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-                        <em>Nota: Se l'audio non è disponibile, carica il file in assets/audio/</em>
-                    </p>
+                    <div class="audio-container" style="background: #f9f9f9; padding: 1rem; border-radius: 8px; border: 1px dashed #ccc; margin: 1rem 0;">
+                      <audio controls style="width: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                          <source src="${project.audioFile}" type="audio/mpeg">
+                          Il tuo browser non supporta l'audio HTML5.
+                      </audio>
+                      <p class="audio-placeholder" style="display: none; text-align: center; color: #666; font-style: italic;">
+                        🎙️ File audio non trovato. <br> Caricalo in: <strong>${project.audioFile}</strong>
+                      </p>
+                    </div>
                 </div>
             `;
       break;
@@ -254,14 +205,15 @@ function openModal(project) {
     case "copywriting":
       // Per copywriting: mostra il testo formattato
       modalContent += `
-                <img src="${project.image}" alt="${
-        project.title
-      }" class="modal-image"
-                     onerror="this.style.display='none'">
+                <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <img src="${project.image}" alt="${project.title}" class="modal-image"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica immagine: ${project.image}</p>
+                </div>
                 <h4>📝 Esempio di Copy:</h4>
                 <div class="copywriting-text">${project.copyText.replace(
                   /\n/g,
-                  "<br>"
+                  "<br>",
                 )}</div>
             `;
       break;
@@ -269,8 +221,11 @@ function openModal(project) {
     case "webdev":
       // Per web development: mostra screenshot + link al sito
       modalContent += `
-                <img src="${project.image}" alt="${project.title}" class="modal-image"
-                     onerror="this.style.display='none'">
+                <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <img src="${project.image}" alt="${project.title}" class="modal-image"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica screenshot: ${project.image}</p>
+                </div>
                 <h4>🔗 Visita il sito:</h4>
                 <a href="${project.websiteUrl}" target="_blank" rel="noopener noreferrer" class="website-link">
                     Apri il sito web →
@@ -355,7 +310,7 @@ function searchProjects(searchTerm) {
   const filtered = projects.filter(
     (project) =>
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.shortDescription.toLowerCase().includes(searchTerm.toLowerCase())
+      project.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()),
   );
   return filtered;
 }

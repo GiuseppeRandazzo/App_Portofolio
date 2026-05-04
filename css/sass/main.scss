@@ -4,23 +4,23 @@
    ======================================== */
 
 // 1. Importa variabili (devono essere per prime!)
-@import "variables";
+@use "variables";
 
 // 2. Importa mixins (utilizzati negli altri file)
-@import "mixins";
+@use "mixins";
 
 // 3. Importa base styles
-@import "base";
+@use "base";
 
 // 4. Importa componenti
-@import "header";
-@import "hero";
-@import "projects";
-@import "modal";
-@import "footer";
+@use "header";
+@use "hero";
+@use "projects";
+@use "modal";
+@use "footer";
 
 // 5. Importa animazioni
-@import "animations";
+@use "animations";
 
 // 6. Importa responsive (per ultimo!)
-@import "responsive";
+@use "responsive";

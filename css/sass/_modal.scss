@@ -1,47 +1,51 @@
+@use "sass:color";
+@use "mixins";
+@use "variables";
+
 /* ========================================
    MODAL (Popup dettagli progetto)
    ======================================== */
 
 .modal {
   display: none;
-  @include overlay(0.7);
-  z-index: $z-modal;
+  @include mixins.overlay(0.7);
+  z-index: variables.$z-modal;
   overflow: auto;
-  @include animate(fadeIn, 0.3s);
+  @include mixins.animate(fadeIn, 0.3s);
 
   &.show {
-    @include flex-center;
+    @include mixins.flex-center;
   }
 }
 
 // Contenuto del modal
 .modal-content {
-  background-color: $white;
-  margin: $spacing-lg;
-  padding: $spacing-lg;
-  @include rounded;
+  background-color: variables.$white;
+  margin: variables.$spacing-lg;
+  padding: variables.$spacing-lg;
+  @include mixins.rounded;
   max-width: 800px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  @include animate(slideIn, 0.3s);
+  @include mixins.animate(slideIn, 0.3s);
 }
 
 // Bottone chiudi (X)
 .close-btn {
   position: absolute;
-  right: $spacing-md;
-  top: $spacing-md;
-  font-size: $font-xl;
-  font-weight: $font-bold;
-  color: $text-light;
+  right: variables.$spacing-md;
+  top: variables.$spacing-md;
+  font-size: variables.$font-xl;
+  font-weight: variables.$font-bold;
+  color: variables.$text-light;
   cursor: pointer;
-  @include transition;
+  @include mixins.transition;
   line-height: 1;
 
   &:hover {
-    color: $accent-color;
+    color: variables.$accent-color;
     transform: rotate(90deg);
   }
 }
@@ -49,43 +53,43 @@
 // Contenuto del modal
 .modal-body {
   h2 {
-    color: $primary-color;
-    margin-bottom: $spacing-sm;
-    padding-right: $spacing-lg;
+    color: variables.$primary-color;
+    margin-bottom: variables.$spacing-sm;
+    padding-right: variables.$spacing-lg;
   }
 
   .category-badge {
     display: inline-block;
-    padding: 0.4rem $spacing-sm;
-    background-color: $secondary-color;
-    color: $white;
-    border-radius: $border-radius-full;
-    font-size: $font-sm;
-    margin-bottom: $spacing-md;
+    padding: 0.4rem variables.$spacing-sm;
+    background-color: variables.$secondary-color;
+    color: variables.$white;
+    border-radius: variables.$border-radius-full;
+    font-size: variables.$font-sm;
+    margin-bottom: variables.$spacing-md;
   }
 
   .full-description {
-    color: $text-color;
+    color: variables.$text-color;
     line-height: 1.8;
-    margin-bottom: $spacing-md;
+    margin-bottom: variables.$spacing-md;
   }
 
   .modal-image {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    @include rounded;
-    margin-bottom: $spacing-md;
+    @include mixins.rounded;
+    margin-bottom: variables.$spacing-md;
   }
 }
 
 // Player audio personalizzato
 .audio-player {
   width: 100%;
-  margin: $spacing-md 0;
-  padding: $spacing-sm;
-  background-color: $bg-color;
-  @include rounded;
+  margin: variables.$spacing-md 0;
+  padding: variables.$spacing-sm;
+  background-color: variables.$bg-color;
+  @include mixins.rounded;
 
   audio {
     width: 100%;
@@ -94,24 +98,24 @@
 
 // Testo del copywriting
 .copywriting-text {
-  background-color: $bg-color;
-  padding: $spacing-md;
-  @include rounded;
-  border-left: 4px solid $secondary-color;
-  margin: $spacing-md 0;
+  background-color: variables.$bg-color;
+  padding: variables.$spacing-md;
+  @include mixins.rounded;
+  border-left: 4px solid variables.$secondary-color;
+  margin: variables.$spacing-md 0;
   line-height: 1.8;
   font-style: italic;
 }
 
 // Link al sito web
 .website-link {
-  @include button-primary;
+  @include mixins.button-primary;
   display: inline-block;
-  padding: 0.8rem $spacing-md;
-  margin-top: $spacing-sm;
-  font-weight: $font-medium;
+  padding: 0.8rem variables.$spacing-md;
+  margin-top: variables.$spacing-sm;
+  font-weight: variables.$font-medium;
 
   &:hover {
-    background-color: darken($secondary-color, 10%);
+    background-color: color.adjust(variables.$secondary-color, $lightness: -10%);
   }
 }

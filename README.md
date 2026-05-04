@@ -1,182 +1,45 @@
-# 📁 Portfolio Web App
+# 🎙️ Portfolio Professionale | Giuseppe Randazzo
 
-Una Single Page Application moderna e responsive per gestire e mostrare i tuoi progetti professionali nelle categorie:
+Un'applicazione web elegante e moderna per mostrare progetti di **Voice Over** e **Web Development**. Sviluppata con un approccio professionale utilizzando HTML, Sass (SCSS) e JavaScript Vanilla.
 
-- 🎤 **Voice Over** (con player audio integrato)
-- ✍️ **Copywriting** (con visualizzazione testi)
-- 💻 **Web Development** (con link ai siti)
+## 🌟 Visione del Progetto
+Questo portfolio è stato progettato per comunicare professionalità ed eleganza attraverso una palette cromatica "Slate & Gold" (Ardesia e Oro), ideale per un profilo che unisce creatività vocale e competenze tecniche nel web.
 
-## 🚀 Come Iniziare
+## 🚀 Caratteristiche Tecniche
+- **Single Page Application (SPA) Logic:** Navigazione fluida tra le categorie senza ricaricamento.
+- **Sass Architecture:** Organizzazione modulare professionale utilizzando la sintassi moderna `@use`.
+- **Media Handling:** Player audio personalizzato per demo vocali e integrazione link per progetti web.
+- **Responsive Design:** Ottimizzato per ogni dispositivo (Mobile, Tablet, Desktop).
+- **SEO & Social Ready:** Meta tag Open Graph configurati per una condivisione d'impatto.
 
-### Apertura del progetto
+## 🛠️ Setup e Sviluppo
 
-1. Apri il file `index.html` con un browser (Chrome, Firefox, Edge, ecc.)
-2. Oppure usa un server locale per il testing (consigliato):
-   - Con VS Code: installa l'estensione "Live Server" e clicca "Go Live"
-   - Con Python: `python -m http.server 8000`
-   - Con Node.js: `npx http-server`
-
-## 📝 Come Aggiungere Nuovi Progetti
-
-### 1. Apri il file `js/main.js`
-
-### 2. Trova l'array `projects` (all'inizio del file)
-
-### 3. Aggiungi un nuovo oggetto progetto seguendo questi esempi
-
-#### Per un progetto VOICE OVER
-
-```javascript
-{
-    id: 9,  // Incrementa sempre l'ID
-    category: 'voiceover',
-    categoryLabel: 'Voice Over',
-    title: 'Il Tuo Titolo',
-    shortDescription: 'Breve descrizione che appare nella card',
-    fullDescription: 'Descrizione completa che appare nel popup',
-    image: 'assets/images/nome-immagine.jpg',
-    audioFile: 'assets/audio/nome-audio.mp3'
-}
+### Installazione
+```bash
+npm install
 ```
 
-#### Per un progetto COPYWRITING
+### Compilazione Sass
+Il progetto utilizza Sass per la gestione degli stili. Puoi compilarlo nei seguenti modi:
 
-```javascript
-{
-    id: 10,
-    category: 'copywriting',
-    categoryLabel: 'Copywriting',
-    title: 'Il Tuo Titolo',
-    shortDescription: 'Breve descrizione',
-    fullDescription: 'Descrizione completa',
-    image: 'assets/images/nome-immagine.jpg',
-    copyText: `
-        Il tuo testo qui.
-        Puoi usare più righe.
-        Mantieni la formattazione.
-    `
-}
-```
+- **Sviluppo (Watch):** `npm run sass:watch`
+- **Produzione (Build):** `npm run sass:build` (genera CSS minificato in `css/style.css`)
 
-#### Per un progetto WEB DEVELOPMENT
+## 📂 Struttura del Repository
+- `index.html`: Entry point con ottimizzazione SEO.
+- `main.js`: Logica applicativa e database dei progetti.
+- `css/sass/`: Sorgenti modulari (variabili, mixin, componenti).
+- `assets/`: Cartelle predisposte per `audio/` e `images/`.
 
-```javascript
-{
-    id: 11,
-    category: 'webdev',
-    categoryLabel: 'Web Development',
-    title: 'Il Tuo Titolo',
-    shortDescription: 'Breve descrizione',
-    fullDescription: 'Descrizione completa',
-    image: 'assets/images/nome-immagine.jpg',
-    websiteUrl: 'https://il-tuo-sito.com'
-}
-```
+## ✍️ Personalizzazione Contenuti
+I progetti sono gestiti dinamicamente nel file [main.js](main.js). Per aggiungere un nuovo lavoro, basta inserire un oggetto nell'array `projects` seguendo lo schema nel file.
 
-## 📂 Struttura Cartelle
-
-App_Portofolio/
-├── index.html # Pagina principale
-├── css/
-│ └── style.css # Tutti gli stili
-├── js/
-│ └── main.js # Logica e database progetti
-├── assets/
-│ ├── images/ # 🖼️ Metti qui le immagini dei progetti
-│ └── audio/ # 🎵 Metti qui i file audio
-└── README.md # Questa guida
-
-## 🎨 Personalizzazione Colori
-
-Per cambiare i colori del sito, apri `css/style.css` e modifica le variabili all'inizio del file:
-
-```css
-:root {
-  --primary-color: #2c3e50; /* Colore principale */
-  --secondary-color: #3498db; /* Colore secondario */
-  --accent-color: #e74c3c; /* Colore accento */
-  /* ... */
-}
-```
-
-## 📱 Caratteristiche
-
-- ✅ Design responsive (funziona su desktop, tablet, mobile)
-- ✅ Navigazione tra categorie
-- ✅ Modal popup per dettagli progetto
-- ✅ Player audio integrato per voice over
-- ✅ Visualizzazione testi per copywriting
-- ✅ Link esterni per progetti web
-- ✅ Animazioni smooth
-- ✅ Codice commentato per facile apprendimento
-
-## 🌐 Pubblicazione Online
-
-### Opzione 1: GitHub Pages (Gratuito)
-
-1. Crea un repository GitHub
-2. Carica tutti i file
-3. Vai in Settings → Pages
-4. Seleziona il branch "main" e salva
-5. Il tuo sito sarà online su `username.github.io/nome-repo`
-
-### Opzione 2: Netlify (Gratuito)
-
-1. Vai su [netlify.com](https://www.netlify.com)
-2. Trascina la cartella del progetto
-3. Il sito è online in pochi secondi!
-
-### Opzione 3: Vercel (Gratuito)
-
-1. Vai su [vercel.com](https://vercel.com)
-2. Importa il progetto
-3. Deploy automatico
-
-## 🔧 Troubleshooting
-
-**Le immagini non si vedono?**
-
-- Controlla che le immagini siano nella cartella `assets/images/`
-- Verifica che il nome del file corrisponda esattamente a quello nel codice
-- L'app mostra un placeholder se l'immagine non è trovata
-
-**L'audio non si sente?**
-
-- Verifica che i file audio siano in formato MP3
-- Controlla che siano nella cartella `assets/audio/`
-- Alcuni browser bloccano l'autoplay audio (è normale)
-
-**Il sito non si vede bene su mobile?**
-
-- Il design è già responsive, prova a ricaricare la pagina
-- Controlla che il file CSS sia caricato correttamente
-
-## 📚 Per Studiare il Codice
-
-Il codice è abbondantemente commentato. Suggerisco di studiarlo in questo ordine:
-
-1. **HTML** (`index.html`) - Struttura della pagina
-2. **CSS** (`style.css`) - Styling e layout
-3. **JavaScript** (`main.js`) - Logica e interattività
-
-Ogni sezione è commentata per spiegare cosa fa!
-
-## 🎯 Prossimi Passi Possibili
-
-- [ ] Aggiungere una barra di ricerca
-- [ ] Implementare filtri multipli
-- [ ] Aggiungere form contatti
-- [ ] Migrare a React per gestione più avanzata
-- [ ] Integrare un CMS (Contentful, Strapi)
-- [ ] Aggiungere Google Analytics
-
-## 💡 Tips
-
-- Usa immagini ottimizzate (max 500KB per immagine)
-- Comprimi i file audio per caricamenti più veloci
-- Testa il sito su diversi browser
-- Chiedi feedback ad amici/colleghi
+## 🌐 Pubblicazione
+Per rendere il sito visibile online:
+1. Carica i file su un repository GitHub.
+2. Vai in **Settings** > **Pages**.
+3. Sotto **Build and deployment**, imposta Source su **Deploy from a branch** e seleziona il branch `main`.
+4. Salva e attendi il link del tuo nuovo sito!
 
 ---
-
-**Creato con ❤️ per il tuo successo professionale!**
+*Creato con passione da Giuseppe Randazzo*

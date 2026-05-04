@@ -3,18 +3,19 @@
    Centralizza tutti i valori riutilizzabili
    ======================================== */
 
-// Colori Principali
-$primary-color: #2c3e50;
-$secondary-color: #3498db;
-$accent-color: #e74c3c;
+// Colori Principali - Palette "Slate & Gold" (Elegante e Professionale)
+$primary-color: #0f172a; // Deep Slate (Blu Notte scurissimo)
+$secondary-color: #334155; // Slate Grey ( Grigio ardesia professionale)
+$accent-color: #c5a059; // Muted Gold (Oro satinato, non pacchiano)
+$theatrical-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 
 // Colori Testo
-$text-color: #333;
-$text-light: #777;
+$text-color: #1e293b;
+$text-light: #64748b;
 $text-white: #ffffff;
 
 // Colori Background
-$bg-color: #f8f9fa;
+$bg-color: #f8fafc;
 $white: #ffffff;
 
 // Ombre

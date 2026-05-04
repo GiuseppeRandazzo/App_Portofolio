@@ -1,13 +1,15 @@
+@use "variables";
+
 /* ========================================
    FOOTER
    ======================================== */
 
 .footer {
-  background-color: $primary-color;
-  color: $white;
+  background-color: variables.$primary-color;
+  color: variables.$white;
   text-align: center;
-  padding: $spacing-lg 0;
-  margin-top: $spacing-xl;
+  padding: variables.$spacing-lg 0;
+  margin-top: variables.$spacing-xl;
 
   p {
     margin: 0;

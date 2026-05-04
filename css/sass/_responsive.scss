@@ -1,31 +1,34 @@
+@use "mixins";
+@use "variables";
+
 /* ========================================
    RESPONSIVE DESIGN
    Media queries per mobile e tablet
    ======================================== */
 
 // Tablet
-@include tablet {
+@include mixins.tablet {
   .hero-title {
-    font-size: $font-xl;
+    font-size: variables.$font-xl;
   }
 
   .hero-subtitle {
-    font-size: $font-base;
+    font-size: variables.$font-base;
   }
 
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: $spacing-md;
+    gap: variables.$spacing-md;
   }
 
   .modal-content {
-    margin: $spacing-sm;
-    padding: $spacing-md;
+    margin: variables.$spacing-sm;
+    padding: variables.$spacing-md;
   }
 }
 
 // Mobile
-@include mobile {
+@include mixins.mobile {
   .header {
     .container {
       flex-direction: column;
@@ -38,16 +41,16 @@
   }
 
   .nav-btn {
-    padding: $spacing-xs $spacing-sm;
-    font-size: $font-xs;
+    padding: variables.$spacing-xs variables.$spacing-sm;
+    font-size: variables.$font-xs;
   }
 
   .hero {
-    padding: $spacing-lg 0;
+    padding: variables.$spacing-lg 0;
   }
 
   .hero-title {
-    font-size: $font-lg;
+    font-size: variables.$font-lg;
   }
 
   .projects-grid {
@@ -55,7 +58,7 @@
   }
 
   .modal-content {
-    margin: $spacing-xs;
-    padding: $spacing-sm;
+    margin: variables.$spacing-xs;
+    padding: variables.$spacing-sm;
   }
 }

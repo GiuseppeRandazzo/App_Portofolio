@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 /* ========================================
    BASE STYLES
    Reset e stili di base
@@ -14,22 +17,22 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: $text-color;
-  background-color: $bg-color;
+  color: variables.$text-color;
+  background-color: variables.$bg-color;
 }
 
 // Container principale
 .container {
-  max-width: $container-max-width;
+  max-width: variables.$container-max-width;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
+  padding: 0 variables.$spacing-lg;
 }
 
 // Stili link base
 a {
   text-decoration: none;
   color: inherit;
-  @include transition;
+  @include mixins.transition;
 }
 
 // Stili immagini

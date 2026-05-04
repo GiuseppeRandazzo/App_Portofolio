@@ -1,73 +1,98 @@
-<!DOCTYPE html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portfolio professionale - Voice Over, Copywriting, Web Development" />
-    <title>Il Mio Portfolio Professionale</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- HEADER CON NAVIGAZIONE -->
-    <header class="header">
-      <div class="container">
-        <h1 class="logo">Il Mio Portfolio</h1>
-        <nav class="nav">
-          <!-- Pulsanti per cambiare categoria -->
-          <button class="nav-btn active" data-category="all">Tutti</button>
-          <button class="nav-btn" data-category="voiceover">Voice Over</button>
-          <button class="nav-btn" data-category="copywriting">
-            Copywriting
-          </button>
-          <button class="nav-btn" data-category="webdev">
-            Web Development
-          </button>
-        </nav>
-      </div>
-    </header>
+<Doctype html>
+  <html lang="it">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="description"
+        content="Portfolio professionale - Voice Over, Web Development" />
+      <title>Il Mio Portfolio Professionale</title>
 
-    <!-- SEZIONE HERO (introduzione) -->
-    <section class="hero">
-      <div class="container">
-        <h2 class="hero-title">Benvenuto nel mio Portfolio</h2>
-        <p class="hero-subtitle">Esplora i miei progetti professionali</p>
-      </div>
-    </section>
+      <!-- Favicon Placeholder -->
+      <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>" />
 
-    <!-- GRIGLIA PROGETTI -->
-    <main class="main">
-      <div class="container">
-        <!-- Questo div verrà popolato dinamicamente con JavaScript -->
-        <div id="projects-grid" class="projects-grid">
-          <!-- I progetti verranno inseriti qui tramite JS -->
+      <!-- Open Graph / SEO -->
+      <meta property="og:title" content="Il Mio Portfolio Professionale" />
+      <meta
+        property="og:description"
+        content="Voice Over, Web Development. Scopri i miei progetti." />
+      <meta property="og:type" content="website" />
+
+      <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+      <!-- HEADER CON NAVIGAZIONE -->
+      <header class="header">
+        <div class="container">
+          <h1 class="logo">Il Mio Portfolio</h1>
+          <nav class="nav">
+            <!-- Pulsanti per cambiare categoria -->
+            <button class="nav-btn active" data-category="all">Tutti</button>
+            <button class="nav-btn" data-category="voiceover">
+              Voice Over
+            </button>
+            <button class="nav-btn" data-category="webdev">
+              Web Development
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <!-- SEZIONE HERO (introduzione) -->
+      <section class="hero">
+        <div class="container">
+          <h2 class="hero-title">Benvenuto nel mio Portfolio</h2>
+          <p class="hero-subtitle">Esplora i miei progetti professionali</p>
+        </div>
+      </section>
+
+      <!-- GRIGLIA PROGETTI -->
+      <main class="main">
+        <div class="container">
+          <!-- Questo div verrà popolato dinamicamente con JavaScript -->
+          <div id="projects-grid" class="projects-grid">
+            <!-- I progetti verranno inseriti qui tramite JS -->
+          </div>
+        </div>
+      </main>
+
+      <!-- MODAL PER DETTAGLI PROGETTO -->
+      <!-- Questo modal si apre quando clicchi su un progetto -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <!-- Pulsante per chiudere il modal -->
+          <span class="close-btn">&times;</span>
+
+          <!-- Contenuto del modal (viene popolato dinamicamente) -->
+          <div id="modal-body" class="modal-body">
+            <!-- Il contenuto verrà inserito da JavaScript -->
+          </div>
         </div>
       </div>
-    </main>
 
-    <!-- MODAL PER DETTAGLI PROGETTO -->
-    <!-- Questo modal si apre quando clicchi su un progetto -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <!-- Pulsante per chiudere il modal -->
-        <span class="close-btn">&times;</span>
-
-        <!-- Contenuto del modal (viene popolato dinamicamente) -->
-        <div id="modal-body" class="modal-body">
-          <!-- Il contenuto verrà inserito da JavaScript -->
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2025 Portfolio Professionale. Tutti i diritti riservati.</p>
         </div>
-      </div>
-    </div>
+      </footer>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 Portfolio Professionale. Tutti i diritti riservati.</p>
-      </div>
-    </footer>
-
-    <!-- Link al file JavaScript -->
-    <script src="js/main.js"></script>
-  </body>
-</html>
+      <!-- Link al file JavaScript -->
+      <script src="main.js"></script>
+      <script>
+        console.log("Checking script loading...");
+        if (typeof projects === "undefined") {
+          console.error("JavaScript file (main.js) was NOT loaded correctly!");
+          document.body.insertAdjacentHTML(
+            "afterbegin",
+            '<div style="background:red;color:white;padding:1rem;text-align:center;position:fixed;top:0;width:100%;z-index:9999">Errore: JavaScript non caricato. Controlla il percorso di js/main.js</div>',
+          );
+        } else {
+          console.log("JavaScript file loaded successfully.");
+        }
+      </script>
+    </body>
+  </html>
+</Doctype>
