@@ -1,6 +1,6 @@
 # Portfolio Professionale | Giuseppe Randazzo
 
-[![Live Demo](https://img.shields.io/badge/demo-online-gold.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://GiuseppeRandazzo.github.io/App_Portofolio/)
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://GiuseppeRandazzo.github.io/App_Portofolio/)
 
 Un'applicazione web elegante e moderna per mostrare progetti di **Voice Over** e **Web Development**. Sviluppata con un approccio professionale utilizzando HTML, Sass (SCSS) e JavaScript Vanilla.
 
