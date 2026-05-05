@@ -14,7 +14,7 @@ const projects = [
     fullDescription:
       "Registrazione professionale per spot pubblicitario televisivo di 30 secondi. Tono energico e coinvolgente per target giovani.",
     image: "assets/images/voiceover-1.jpg", // Puoi sostituire con le tue immagini
-    audioFile: "assets/audio/spot-coca-cola.mp3", // Inserisci qui il percorso del tuo file audio
+    audioFile: "", // Inserisci qui il percorso del tuo file audio
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const projects = [
     fullDescription:
       'Narrazione professionale del celebre romanzo "Il Piccolo Principe". Tono caldo e narrativo, perfetto per l\'ascolto serale.',
     image: "assets/images/voiceover-2.jpg",
-    audioFile: "assets/audio/piccolo-principe.mp3",
+    audioFile: "",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projects = [
     fullDescription:
       "Registrazione per video corporate. Tono professionale e autorevole, adatto a presentazioni aziendali e video istituzionali.",
     image: "assets/images/voiceover-3.jpg",
-    audioFile: "assets/audio/corporate.mp3",
+    audioFile: "",
   },
 
   // PROGETTI WEB DEVELOPMENT
@@ -49,7 +49,7 @@ const projects = [
     fullDescription:
       "Creazione di landing page responsive con form contatti, galleria prima/dopo, sezione servizi e integrazione Google Maps. Design pulito e professionale.",
     image: "assets/images/webdev-1.jpg",
-    websiteUrl: "https://esempio-studio-dentistico.com", // Sostituisci con il link reale
+    websiteUrl: "", // Sostituisci con il link reale
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const projects = [
     fullDescription:
       "Sviluppo di portfolio fotografico con galleria immagini ottimizzata, lightbox personalizzata e animazioni smooth. Focus sull'esperienza visiva.",
     image: "assets/images/webdev-2.jpg",
-    websiteUrl: "https://esempio-portfolio-fotografo.com",
+    websiteUrl: "",
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ const projects = [
     fullDescription:
       "Landing page ad alta conversione per vendita prodotto singolo. Include countdown timer, recensioni clienti, FAQ e checkout semplificato.",
     image: "assets/images/webdev-3.jpg",
-    websiteUrl: "https://esempio-ecommerce-landing.com",
+    websiteUrl: "",
   },
 ];
 
@@ -148,7 +148,7 @@ function createProjectCard(project) {
                style="width: 100%; height: 100%; object-fit: cover;"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="image-placeholder" style="display: none; height: 100%; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: #666; font-style: italic;">
-              📸 Carica la preview in: <br> ${project.image}
+            Carica qui la preview del tuo progetto
           </div>
         </div>
         <div class="project-content">
@@ -185,10 +185,10 @@ function openModal(project) {
                 <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center;">
                   <img src="${project.image}" alt="${project.title}" class="modal-image"
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica immagine: ${project.image}</p>
+                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">Immagine anteprima</p>
                 </div>
                 <div class="audio-player">
-                    <h4>🎧 Ascolta l'audio:</h4>
+                    <h4>Ascolta l'audio:</h4>
                     <div class="audio-container" style="background: #f9f9f9; padding: 1rem; border-radius: 8px; border: 1px dashed #ccc; margin: 1rem 0;">
                       <audio controls style="width: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                           <source src="${project.audioFile}" type="audio/mpeg">
@@ -202,31 +202,15 @@ function openModal(project) {
             `;
       break;
 
-    case "copywriting":
-      // Per copywriting: mostra il testo formattato
-      modalContent += `
-                <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                  <img src="${project.image}" alt="${project.title}" class="modal-image"
-                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica immagine: ${project.image}</p>
-                </div>
-                <h4>📝 Esempio di Copy:</h4>
-                <div class="copywriting-text">${project.copyText.replace(
-                  /\n/g,
-                  "<br>",
-                )}</div>
-            `;
-      break;
-
     case "webdev":
       // Per web development: mostra screenshot + link al sito
       modalContent += `
                 <div class="modal-image-container" style="background: #eee; min-height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
                   <img src="${project.image}" alt="${project.title}" class="modal-image"
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">📸 Carica screenshot: ${project.image}</p>
+                  <p class="placeholder-text" style="display: none; color: #666; font-style: italic;">Immagine anteprima</p>
                 </div>
-                <h4>🔗 Visita il sito:</h4>
+                <h4>Visita il sito:</h4>
                 <a href="${project.websiteUrl}" target="_blank" rel="noopener noreferrer" class="website-link">
                     Apri il sito web →
                 </a>
