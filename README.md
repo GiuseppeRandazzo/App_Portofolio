@@ -42,4 +42,4 @@ Per rendere il sito visibile online:
 4. Salva e attendi il link del tuo nuovo sito!
 
 ---
-*Creato con passione da Giuseppe Randazzo*
+*Creato da Giuseppe Randazzo*
